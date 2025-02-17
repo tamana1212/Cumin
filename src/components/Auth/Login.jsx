@@ -1,33 +1,33 @@
 // import React from "react";
 import { useState } from "react";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
   const [error, setError] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(loginDetails);
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!loginDetails.email || !loginDetails.password) {
-      setError("Please fill all the fields");
-      return;
-    } else if (!emailRegex.test(loginDetails.email)) {
-      setError("Please enter a valid email");
-    } else if (loginDetails.password.length < 6) {
-      setError("Password must be at least 6 characters long");
-    } else {
-      setError("");
-    }
+    console.log("cl")
+    handleLogin(loginDetails);
+    
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!loginDetails.email || !loginDetails.password) {
+    //   setError("Please fill all the fields");
+    //   return;
+    // } else if (!emailRegex.test(loginDetails.email)) {
+    //   setError("Please enter a valid email");
+    // } else if (loginDetails.password.length < 6) {
+    //   setError("Password must be at least 6 characters long");
+    // } else {
+    //   setError("");
+    // }
   };
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-gray-800 rounded-lg shadow-xl p-8 border border-gray-700">
-        {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-white mb-2">Welcome back</h2>
           <p className="text-gray-400 text-sm">Sign in to your account</p>
         </div>
-
         {/* Form */}
         <form
           className="space-y-6"
@@ -92,7 +92,6 @@ const Login = () => {
           </button>
           {error && <p className="text-red-500 text-sm">{error}</p>}
         </form>
-
         {/* Footer */}
         <div className="text-center mt-6">
           <p className="text-gray-400 text-sm">
