@@ -9,7 +9,7 @@ const AllTasks = () => {
   }
 
   const allTasks = userData.employees.flatMap((employee) =>
-    employee.tasks.map((task) => ({ ...task, assignedTo: employee.name }))
+    employee.tasks.map((task) => ({ ...task, assignedTo: `${employee.firstName} ${employee.lastName}` }))
   );
 
   return (

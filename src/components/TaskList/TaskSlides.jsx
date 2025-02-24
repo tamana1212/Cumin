@@ -17,23 +17,13 @@ const TaskSlides = ({ employeeData }) => {
 
   // Function to get priority color
   const getPriorityColor = (priority) => {
-    return priority === "High"
+    return priority.toLowerCase() === "high"
       ? "bg-red-500/20 text-red-500"
-      : priority === "Medium"
+      : priority.toLowerCase() === "medium"
       ? "bg-yellow-500/20 text-yellow-500"
       : "bg-green-500/20 text-green-500";
   };
 
-  // Function to get category color
-  const getCategoryColor = (category) => {
-    const colors = {
-      development: "bg-indigo-500/20 text-indigo-500",
-      design: "bg-pink-500/20 text-pink-500",
-      marketing: "bg-orange-500/20 text-orange-500",
-      research: "bg-teal-500/20 text-teal-500",
-    };
-    return colors[category.toLowerCase()] || "bg-gray-500/20 text-gray-500";
-  };
 
   // Function to update task status
   const updateTaskStatus = (taskIndex, newStatus) => {
@@ -54,11 +44,11 @@ const TaskSlides = ({ employeeData }) => {
         <div key={index} className="w-[45%] flex-shrink-0 px-2">
           <div className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700">
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-lg font-semibold text-white capitalize ">
                 {task.taskTitle}
               </h3>
               <span
-                className={`px-3 py-1 rounded-full text-sm ${getPriorityColor(
+                className={`px-3 py-1 rounded-full text-sm  capitalize ${getPriorityColor(
                   task.priority
                 )}`}
               >
@@ -68,9 +58,7 @@ const TaskSlides = ({ employeeData }) => {
             <div className="flex items-center mb-4">
               <Tag className="w-4 h-4 mr-1 text-gray-400" />
               <span
-                className={`text-xs px-2 py-1 rounded-full ${getCategoryColor(
-                  task.category
-                )}`}
+                className={`text-xs px-2 py-1 rounded-full bg-gray-500/20 text-gray-500`}
               >
                 {task.category}
               </span>

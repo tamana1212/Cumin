@@ -6,7 +6,8 @@ const Header = ({ employeeData, setUser }) => {
     if (!employeeData) {
       setRole("Admin");
     } else {
-      setRole(employeeData.name);
+      // setRole(employeeData.firstName +  " " + employeeData.lastName);
+      setRole(`${employeeData.firstName} ${employeeData.lastName}`)
     }
   }, []);
 

@@ -10,7 +10,7 @@ const CreateTask = ({ setNewTask, newTask }) => {
 
     // Find the assigned employee
     const employee = userData.employees.find(
-      (emp) => emp.name === newTask.assignedTo
+      (emp) => `${emp.firstName} ${emp.lastName}` === newTask.assignedTo
     );
 
     if (!employee) {
@@ -20,7 +20,7 @@ const CreateTask = ({ setNewTask, newTask }) => {
 
     // Update the employee's task list
     const updatedEmployees = userData.employees.map((emp) =>
-      emp.name === newTask.assignedTo
+      `${emp.firstName} ${emp.lastName}` === newTask.assignedTo
         ? {
             ...emp,
             tasks: [...emp.tasks, { status: "new", ...newTask }],

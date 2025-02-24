@@ -1,9 +1,12 @@
 const employees = [
   {
     id: 1,
-    name: "Chintu Sharma",
+    firstName: "Chintu",
+    lastName: "Sharma",
     email: "chintu.sharma@itcompany.in",
     password: "123",
+    role: "Backend Engineer",
+    department: "Backend Development",
     tasks: [
       {
         status: "active",
@@ -15,18 +18,18 @@ const employees = [
       },
       {
         status: "completed",
-        taskTitle: "Database Optimization",
-        taskDescription: "Optimize SQL queries for faster performance.",
+        taskTitle: "Optimize Database Queries",
+        taskDescription: "Enhance performance by indexing and caching.",
         taskDate: "2025-02-18",
         category: "Database",
         priority: "Medium",
       },
       {
         status: "failed",
-        taskTitle: "Fix UI Bugs",
-        taskDescription: "Resolve layout issues on the login page.",
+        taskTitle: "Fix API Rate Limiting Issues",
+        taskDescription: "Resolve bugs related to request throttling.",
         taskDate: "2025-02-19",
-        category: "Frontend Development",
+        category: "Backend Development",
         priority: "Low",
       },
     ],
@@ -34,32 +37,35 @@ const employees = [
   },
   {
     id: 2,
-    name: "Pappu Yadav",
+    firstName: "Pappu",
+    lastName: "Yadav",
     email: "pappu.yadav@itcompany.in",
     password: "123",
+    role: "UI/UX Designer",
+    department: "Design",
     tasks: [
       {
         status: "active",
-        taskTitle: "Design Landing Page",
-        taskDescription: "Create a modern landing page design in Figma.",
+        taskTitle: "Redesign Dashboard UI",
+        taskDescription: "Create an intuitive and responsive dashboard UI.",
         taskDate: "2025-02-17",
         category: "UI/UX Design",
         priority: "High",
       },
       {
         status: "completed",
-        taskTitle: "Conduct User Testing",
-        taskDescription: "Run usability tests with clients.",
+        taskTitle: "User Flow Testing",
+        taskDescription: "Conduct usability tests and gather feedback.",
         taskDate: "2025-02-18",
         category: "User Research",
         priority: "Medium",
       },
       {
         status: "failed",
-        taskTitle: "Implement Dark Mode",
-        taskDescription: "Add a dark mode toggle to the application.",
+        taskTitle: "Enhance Accessibility Features",
+        taskDescription: "Ensure the UI is accessible for all users.",
         taskDate: "2025-02-19",
-        category: "Frontend Development",
+        category: "UI/UX Design",
         priority: "Low",
       },
     ],
@@ -67,32 +73,35 @@ const employees = [
   },
   {
     id: 3,
-    name: "Bunty Verma",
+    firstName: "Bunty",
+    lastName: "Verma",
     email: "bunty.verma@itcompany.in",
     password: "123",
+    role: "DevOps Engineer",
+    department: "DevOps",
     tasks: [
       {
         status: "active",
-        taskTitle: "Setup CI/CD Pipeline",
-        taskDescription: "Configure Jenkins for automated deployment.",
+        taskTitle: "Implement CI/CD Pipeline",
+        taskDescription: "Automate deployment process with Jenkins.",
         taskDate: "2025-02-17",
         category: "DevOps",
         priority: "High",
       },
       {
         status: "completed",
-        taskTitle: "Server Migration",
-        taskDescription: "Move production servers to AWS.",
+        taskTitle: "Configure Cloud Infrastructure",
+        taskDescription: "Setup AWS services for production.",
         taskDate: "2025-02-18",
         category: "Infrastructure",
         priority: "Medium",
       },
       {
         status: "failed",
-        taskTitle: "Implement Logging",
-        taskDescription: "Setup centralized logging with ELK stack.",
+        taskTitle: "Optimize Docker Containers",
+        taskDescription: "Reduce image size and improve security.",
         taskDate: "2025-02-19",
-        category: "Backend Development",
+        category: "DevOps",
         priority: "Low",
       },
     ],
@@ -100,32 +109,35 @@ const employees = [
   },
   {
     id: 4,
-    name: "Guddu Pandey",
+    firstName: "Guddu",
+    lastName: "Pandey",
     email: "guddu.pandey@itcompany.in",
     password: "123",
+    role: "Technical Writer",
+    department: "Technical Writing",
     tasks: [
       {
         status: "active",
-        taskTitle: "Write API Documentation",
-        taskDescription: "Document API endpoints using Swagger.",
+        taskTitle: "Document API Endpoints",
+        taskDescription: "Write Swagger documentation for APIs.",
         taskDate: "2025-02-17",
         category: "Technical Writing",
         priority: "High",
       },
       {
         status: "completed",
-        taskTitle: "Create Test Cases",
-        taskDescription: "Write unit tests for authentication module.",
+        taskTitle: "Create Onboarding Guides",
+        taskDescription: "Develop comprehensive documentation for new hires.",
         taskDate: "2025-02-18",
-        category: "QA",
+        category: "Technical Writing",
         priority: "Medium",
       },
       {
         status: "failed",
-        taskTitle: "Fix Memory Leak Issue",
-        taskDescription: "Identify and resolve memory leaks in the app.",
+        taskTitle: "Update Legacy Documentation",
+        taskDescription: "Revise outdated system manuals.",
         taskDate: "2025-02-19",
-        category: "Backend Development",
+        category: "Technical Writing",
         priority: "Low",
       },
     ],
@@ -133,9 +145,12 @@ const employees = [
   },
   {
     id: 5,
-    name: "Tinku Malhotra",
+    firstName: "Tinku",
+    lastName: "Malhotra",
     email: "tinku.malhotra@itcompany.in",
     password: "123",
+    role: "Frontend Developer",
+    department: "Frontend Development",
     tasks: [
       {
         status: "active",
@@ -164,72 +179,6 @@ const employees = [
     ],
     taskCount: { active: 1, completed: 1, failed: 0, new: 1 },
   },
-  {
-    id: 6,
-    name: "Babloo Chatterjee",
-    email: "babloo.chatterjee@itcompany.in",
-    password: "123",
-    tasks: [
-      {
-        status: "active",
-        taskTitle: "Automate Testing Suite",
-        taskDescription: "Set up Selenium tests for frontend validation.",
-        taskDate: "2025-02-17",
-        category: "QA",
-        priority: "High",
-      },
-      {
-        status: "completed",
-        taskTitle: "Improve Database Schema",
-        taskDescription: "Normalize tables and improve indexing.",
-        taskDate: "2025-02-18",
-        category: "Database",
-        priority: "Medium",
-      },
-      {
-        status: "failed",
-        taskTitle: "Fix Server Downtime",
-        taskDescription: "Investigate and resolve frequent crashes.",
-        taskDate: "2025-02-19",
-        category: "Infrastructure",
-        priority: "Low",
-      },
-    ],
-    taskCount: { active: 1, completed: 1, failed: 1, new: 0 },
-  },
-  {
-    id: 7,
-    name: "Munna Tripathi",
-    email: "munna.tripathi@itcompany.in",
-    password: "123",
-    tasks: [
-      {
-        status: "active",
-        taskTitle: "Develop Payment Gateway",
-        taskDescription: "Integrate Stripe for secure payments.",
-        taskDate: "2025-02-17",
-        category: "Backend Development",
-        priority: "High",
-      },
-      {
-        status: "completed",
-        taskTitle: "Create Admin Dashboard",
-        taskDescription: "Develop an admin panel for user management.",
-        taskDate: "2025-02-18",
-        category: "Frontend Development",
-        priority: "Medium",
-      },
-      {
-        status: "failed",
-        taskTitle: "Fix Caching Issues",
-        taskDescription: "Resolve inconsistent cache refresh problems.",
-        taskDate: "2025-02-19",
-        category: "Performance Optimization",
-        priority: "Low",
-      },
-    ],
-    taskCount: { active: 1, completed: 1, failed: 1, new: 0 },
-  },
 ];
 
 const admin = {
@@ -239,9 +188,12 @@ const admin = {
 };
 
 export const setLocalStorage = (newData) => {
-  if (newData) {
+  if (newData.employees.length && newData.admin) {
     localStorage.setItem("employees", JSON.stringify(newData.employees));
     localStorage.setItem("admin", JSON.stringify(newData.admin));
+  } else {
+    localStorage.setItem("employees", JSON.stringify(employees));
+    localStorage.setItem("admin", JSON.stringify(admin));
   }
 };
 
