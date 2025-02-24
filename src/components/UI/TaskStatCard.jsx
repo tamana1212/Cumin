@@ -1,43 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const TaskStatCard = ({ employeeData }) => {
-  if (!employeeData.taskCount) {
-    return <div>Invalid data</div>;
+  const { userData } = useContext(AuthContext);
+  const employee = userData?.employees?.find(
+    (emp) => emp.id === employeeData.id
+  );
+
+  const taskCount = employee?.taskCount || {};
+
+  if (!employee) {
+    return <div>Employee not found</div>;
   }
 
   return (
     <>
-      {Object.entries(employeeData.taskCount).length > 0 &&
-        Object.entries(employeeData.taskCount).map(([key, value]) => (
-          <div
-            key={key}
-            className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
-          >
-            <h3 className="text-white text-lg font-medium mb-2">
-              {key.charAt(0).toUpperCase() + key.slice(1)} Tasks
-            </h3>
-            <p className={`text-3xl font-bold text-${getColor(key)}-500`}>
-              {value}
-            </p>
-          </div>
-        ))}
+      {Object.entries(taskCount).map(([key, value]) => (
+        <div
+          key={key}
+          className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
+        >
+          <h3 className="text-white text-lg font-medium mb-2">
+            {key.charAt(0).toUpperCase() + key.slice(1)} Tasks
+          </h3>
+          <p className={`text-3xl font-bold ${getColorClass(key)}`}>{value}</p>
+        </div>
+      ))}
     </>
   );
 };
 
-const getColor = (key) => {
-  switch (key) {
-    case "active":
-      return "green";
-    case "completed":
-      return "purple";
-    case "failed":
-      return "red";
-    case "new":
-      return "blue";
-    default:
-      return "gray";
-  }
+const getColorClass = (key) => {
+  const colors = {
+    active: "text-green-500",
+    completed: "text-purple-500",
+    failed: "text-red-500",
+    new: "text-blue-500",
+  };
+  return colors[key] || "text-gray-500";
 };
 
 export default TaskStatCard;

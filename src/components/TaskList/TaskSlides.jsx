@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { ChevronDown, Tag } from "lucide-react";
 
-const TaskSlides = ({ employeeData }) => {
-  const [tasks, setTasks] = useState(employeeData?.tasks || []);
-
+const TaskSlides = ({ tasks , updateTaskStatus, employeeData}) => {
   // Function to get status color
   const getStatusColor = (status) => {
     const colors = {
@@ -24,31 +21,17 @@ const TaskSlides = ({ employeeData }) => {
       : "bg-green-500/20 text-green-500";
   };
 
-
-  // Function to update task status
-  const updateTaskStatus = (taskIndex, newStatus) => {
-    setTasks((prevTasks) => {
-      const updatedTasks = [...prevTasks];
-      updatedTasks[taskIndex] = {
-        ...updatedTasks[taskIndex],
-        status: newStatus,
-      };
-      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-      return updatedTasks;
-    });
-  };
-
   return (
     <div className="flex transition-transform duration-300 ease-in-out overflow-auto task_slider">
       {tasks.map((task, index) => (
         <div key={index} className="w-[45%] flex-shrink-0 px-2">
           <div className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700">
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-lg font-semibold text-white capitalize ">
+              <h3 className="text-lg font-semibold text-white capitalize">
                 {task.taskTitle}
               </h3>
               <span
-                className={`px-3 py-1 rounded-full text-sm  capitalize ${getPriorityColor(
+                className={`px-3 py-1 rounded-full text-sm capitalize ${getPriorityColor(
                   task.priority
                 )}`}
               >
@@ -57,9 +40,7 @@ const TaskSlides = ({ employeeData }) => {
             </div>
             <div className="flex items-center mb-4">
               <Tag className="w-4 h-4 mr-1 text-gray-400" />
-              <span
-                className={`text-xs px-2 py-1 rounded-full bg-gray-500/20 text-gray-500`}
-              >
+              <span className="text-xs px-2 py-1 rounded-full bg-gray-500/20 text-gray-500">
                 {task.category}
               </span>
             </div>
@@ -72,7 +53,13 @@ const TaskSlides = ({ employeeData }) => {
               <div className="relative">
                 <select
                   value={task.status}
-                  onChange={(e) => updateTaskStatus(index, e.target.value)}
+                  onChange={(e) =>
+                    updateTaskStatus(
+                      employeeData.id,
+                      index,
+                      e.target.value
+                    )
+                  }
                   className={`appearance-none ${getStatusColor(
                     task.status
                   )} px-3 py-1 pr-8 rounded-full text-sm capitalize cursor-pointer focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-gray-400`}
